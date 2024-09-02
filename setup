@@ -4,7 +4,7 @@ export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"
 mkdir -p "$XDG_CONFIG_HOME"/nixpkgs
 
-# symlink stuff
+# Symlink stuff
 ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME"/nixpkgs/config.nix
 ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
 ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
@@ -13,63 +13,63 @@ ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
 # https://gist.github.com/storopoli/ff55e50f7292c4b1806f6c3469781722
 git clone git@gist.github.com:ff55e50f7292c4b1806f6c3469781722.git "$XDG_CONFIG_HOME"/nvim
 
-# install Nix packages from config.nix
-# nix-env -iA nixpkgs.myPackages
+# Install Nix packages from config.nix
+nix-env -iA nixpkgs.myPackages
 
-# Nix is broken due to timeouts, falling back to brew
-packages=(
-    # basics
-    git
-    curl
-    nmap
-    ffmpeg
-    bash-completion
-    zsh-completions
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    fzf
-    ripgrep
-    fd
-    jq
-    lazygit
-    gh
-    shellcheck
-    typst
-    just
-    zellij
-    hugo
-    # GPG
-    gnupg
-    # Neovim
-    neovim
-    node # yeah neovim needs this crap
-    # Rust
-    rustup
-    rust-analyzer
-    bacon
-    cargo-nextest
-    cargo-watch
-    # Python
-    uv
-    poetry
-    ruff
-    pyright
-    # LSPs
-    vscode-langservers-extracted
-    yaml-language-server
-    taplo
-    typescript-language-server
-    marksman
-    lua-language-server
-    bash-language-server
-    shfmt
-    codespell
-)
+# Homebrew alternative
+#packages=(
+#    # basics
+#    git
+#    curl
+#    nmap
+#    ffmpeg
+#    bash-completion
+#    zsh-completions
+#    zsh-autosuggestions
+#    zsh-syntax-highlighting
+#    fzf
+#    ripgrep
+#    fd
+#    jq
+#    lazygit
+#    gh
+#    shellcheck
+#    typst
+#    just
+#    zellij
+#    hugo
+#    # GPG
+#    gnupg
+#    # Neovim
+#    neovim
+#    node # yeah neovim needs this crap
+#    # Rust
+#    rustup
+#    rust-analyzer
+#    bacon
+#    cargo-nextest
+#    cargo-watch
+#    # Python
+#    uv
+#    poetry
+#    ruff
+#    pyright
+#    # LSPs
+#    vscode-langservers-extracted
+#    yaml-language-server
+#    taplo
+#    typescript-language-server
+#    marksman
+#    lua-language-server
+#    bash-language-server
+#    shfmt
+#    codespell
+#)
 
 # Iterate over the array and install each package
-for package in "${packages[@]}"; do
-  echo "Installing $package..."
-  /home/linuxbrew/.linuxbrew/bin/brew install "$package"
-done
+#for package in "${packages[@]}"; do
+#  echo "Installing $package..."
+#  /home/linuxbrew/.linuxbrew/bin/brew install "$package"
+#done
 
 echo "All packages have been installed."
