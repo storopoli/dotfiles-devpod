@@ -13,11 +13,11 @@
         fzf
         lazygit
         gh
-	zellij
+        zellij
         just
         rustup
         python3
-	rust-analyzer
+        rust-analyzer
         clang
         uv
         poetry
