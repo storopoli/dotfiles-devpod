@@ -1,5 +1,3 @@
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
 # LANG Stuff
 export LANG=en
 export LC_ALL=en_US.UTF-8
@@ -31,7 +29,7 @@ export PATH
 [[ "$(command -v nvim)" ]] && export EDITOR=nvim
 
 # FZF
-eval "$(fzf --bash)"
+[[ "$(command -v fzf)" ]] && eval "$(fzf --bash)"
 
 # atuin
 [[ "$(command -v atuin)" ]] && eval "$(atuin init bash)"
